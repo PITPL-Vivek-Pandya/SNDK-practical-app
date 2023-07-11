@@ -1,0 +1,64 @@
+<app-header></app-header>
+<div class="row">
+  <div class="col-md-12">
+    <button class="btn btn-outline-primary float-end m-2" type="submit" [routerLink]="[appUrlsConstants.ADD]">Add Task</button>
+  </div>
+</div>
+<div cdkDropListGroup>
+    <div class="example-container">
+      <h2>Statustics</h2>
+      <div class="example-list">
+        <div class="example-box">
+          Total Pending:- {{pending.length}}
+        </div>
+        <div class="example-box">
+          Total Completed:- {{completed.length}}
+        </div>
+      </div>
+    </div>
+    <div class="example-container">
+      <h2>Pending</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="pending"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of pending" cdkDrag>
+          <div class="row w-100">
+            <div class="col-md-8">
+              <h2>{{item.title}}</h2>
+              <p>Assign: {{item.assign | assignTo}}</p>
+            </div>
+            <div class="col-md-4">
+              <i class="fa fa-edit cursor-pointer" (click)="onEdit(item.id)"></i>
+              <i class="fa fa-trash p-2 cursor-pointer" (click)="onDelete(item.id)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="example-container">
+      <h2>Completed</h2>
+  
+      <div
+        cdkDropList
+        [cdkDropListData]="completed"
+        class="example-list"
+        (cdkDropListDropped)="drop($event)">
+        <div class="example-box" *ngFor="let item of completed" cdkDrag>
+          <div class="row w-100">
+            <div class="col-md-8">
+              <h2>{{item.title}}</h2>
+              <p>Assign: {{item.assign | assignTo}}</p>
+            </div>
+            <div class="col-md-4">
+              <i class="fa fa-edit cursor-pointer" (click)="onEdit(item.id)"></i>
+              <i class="fa fa-trash p-2 cursor-pointer" (click)="onDelete(item.id)"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

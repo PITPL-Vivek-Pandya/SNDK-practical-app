@@ -1,0 +1,9 @@
+{
+  "hosting": [
+    {
+      "target": "SNDK-practical-app",
+      "source": ".",
+      "frameworksBackend": {}
+    }
+  ]
+}

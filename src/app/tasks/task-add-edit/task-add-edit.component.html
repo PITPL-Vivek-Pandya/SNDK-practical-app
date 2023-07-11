@@ -1,0 +1,125 @@
+<app-header></app-header>
+<div class="row">
+    <div class="col-md-12">
+      <button class="btn btn-outline-primary float-end m-2" type="submit" [routerLink]="['']"><i class="fa fa-arrow-left" aria-hidden="true"></i> Tasks</button>
+    </div>
+  </div>
+<!-- <div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <form [formGroup]="formGroup" novalidate (ngSubmit)="onSubmit()" *ngIf="loaded">
+            <div class="row">
+                <div class="col-md-12">
+                            <mat-form-field>
+                                <input
+                                    id="school-name"
+                                    matInput
+                                    hide-autocomplete
+                                    placeholder="Title"
+                                    type="text"
+                                    formControlName="title"
+                                    required
+                                />
+                                <mat-error [hidden]="formGroup.controls['title'].valid || formGroup.controls['title'].pristine">
+                                    Title is required and should contain at most 50 characters.
+                                </mat-error>
+                            </mat-form-field>
+                            </div>
+                            <div class="col-md-12">
+                        <mat-form-field >
+                            <mat-label>Description</mat-label>
+                            <textarea
+                                matInput
+                                placeholder="Description"
+                                formControlName="description"
+                                mat-autosize
+                            matAutosizeMaxRows="10"
+                            rows="5"
+                            ></textarea>
+                        </mat-form-field>
+                        </div>
+                            <div class="col-md-12">
+                         <mat-form-field>
+                                <mat-select id="assign" placeholder="Assign" formControlName="assign">
+                                    <mat-option [value]="null">No Item Selected </mat-option>
+                                    <mat-option *ngFor="let assign of assigns" [value]="assign.key">
+                                        {{ assign.value }}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                            </div>
+                            </div>
+            <button
+                id="save-button"
+                type="submit"
+                class="btn btn-success float-end"
+                [disabled]="!formGroup.valid"
+            >
+                {{btnName}}
+            </button>
+        </form>
+    </div>
+    <div class="col-md-3"></div>
+</div> -->
+
+
+
+
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+      <div class="tab-content">
+        <form [formGroup]="formGroup" novalidate (ngSubmit)="onSubmit()" *ngIf="loaded">
+            <div class="form-outline mb-4">
+                <mat-form-field class="w-100">
+                    <input
+                        id="school-name"
+                        matInput
+                        hide-autocomplete
+                        placeholder="Title"
+                        type="text"
+                        formControlName="title"
+                        required
+                    />
+                    <mat-error [hidden]="formGroup.controls['title'].valid || formGroup.controls['title'].pristine">
+                        Title is required and should contain at most 50 characters.
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="form-outline mb-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Description</mat-label>
+                    <textarea
+                        matInput
+                        placeholder="Description"
+                        formControlName="description"
+                        mat-autosize
+                    matAutosizeMaxRows="10"
+                    rows="5"
+                    ></textarea>
+                </mat-form-field>
+            </div>
+            <div class="form-outline mb-4">
+                <mat-form-field class="w-100">
+                    <mat-select id="assign" placeholder="Assign" formControlName="assign">
+                        <mat-option [value]="null">No Item Selected </mat-option>
+                        <mat-option *ngFor="let assign of assigns" [value]="assign.key">
+                            {{ assign.value }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+      
+            <button
+                id="save-button"
+                type="submit"
+                class="btn btn-success float-end"
+                [disabled]="!formGroup.valid"
+            >
+                {{btnName}}
+            </button>
+          </form>
+      </div>
+    </div>
+    <div class="col-md-3"></div>
+  </div>

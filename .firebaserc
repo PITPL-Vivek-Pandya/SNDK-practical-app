@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "sndk-ee69b": {
+      "hosting": {
+        "SNDK-practical-app": [
+          "sndk-ee69b"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "sndk-ee69b"
+  }
+}

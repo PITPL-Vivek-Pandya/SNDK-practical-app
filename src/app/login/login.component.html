@@ -1,0 +1,90 @@
+<div class="row pt-3">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+
+    <ul class="nav nav-pills nav-justified mb-3" id="ex1" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" [ngClass]="{'active':tab === 1}" id="tab-login" data-mdb-toggle="pill" (click)="changeLogin(1)" role="tab"
+          aria-controls="pills-login" aria-selected="true">Login</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" [ngClass]="{'active':tab === 2}" id="tab-register" data-mdb-toggle="pill" (click)="changeLogin(2)" role="tab"
+          aria-controls="pills-register" aria-selected="false">Register</a>
+      </li>
+    </ul>
+    <!-- Pills navs -->
+    
+    <!-- Pills content -->
+    <div class="tab-content">
+      <div id="pills-login" *ngIf="tab === 1" >
+        <form class="form" [formGroup]="form" (ngSubmit)="onSignIn()">
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <mat-form-field class="form-control">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" type="text" required />
+              <mat-error *ngIf="form.controls['email']?.hasError('required')">
+                Email is required
+              </mat-error>
+              <mat-error *ngIf="form.controls['email']?.hasError('email')">
+                Email isn't valid. Please enter a valid email.
+              </mat-error>
+            </mat-form-field>
+          </div>
+    
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <mat-form-field class="form-control">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password" type="password" required />
+              <mat-error *ngIf="form.controls['password']?.hasError('required')">
+                Password is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+    
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+    
+          <!-- Register buttons -->
+          <div class="text-center">
+            <p>Not a member? <a (click)="changeLogin(2)">Register</a></p>
+          </div>
+        </form>
+      </div>
+      <div id="pills-register" *ngIf="tab === 2">
+        <form class="form" [formGroup]="form" (ngSubmit)="onSignUp()">
+          <div class="form-outline mb-4">
+            <mat-form-field class="form-control">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" type="text" required />
+              <mat-error *ngIf="form.controls['email']?.hasError('required')">
+                Email is required
+              </mat-error>
+              <mat-error *ngIf="form.controls['email']?.hasError('email')">
+                Email isn't valid. Please enter a valid email.
+              </mat-error>
+            </mat-form-field>
+          </div>
+    
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <mat-form-field class="form-control">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password" type="password" required />
+              <mat-error *ngIf="form.controls['password']?.hasError('required')">
+                Password is required
+              </mat-error>
+            </mat-form-field>
+          </div>
+    
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
+        </form>
+      </div>
+    </div>
+    <!-- Pills content -->
+  </div>
+  <div class="col-md-3"></div>
+</div>
+  <!-- Pills navs -->
