@@ -109,6 +109,16 @@
                     </mat-select>
                 </mat-form-field>
             </div>
+            <div class="form-outline mb-4" *ngIf="formGroup.value.id">
+                <mat-form-field class="w-100">
+                    <mat-select id="status" placeholder="Status" formControlName="status">
+                        <mat-option [value]="null">No Item Selected </mat-option>
+                        <mat-option *ngFor="let status of statuses" [value]="status.key">
+                            {{ status.value }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
       
             <button
                 id="save-button"

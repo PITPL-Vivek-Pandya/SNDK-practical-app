@@ -15,6 +15,7 @@ export class TaskAddEditComponent implements OnInit {
   task: Task = new Task();
   loaded:boolean;
   assigns = [{key:1,value:"Vivek"},{key:2,value:"Bhavik"}];
+  statuses = [{key:1,value:"Pending"},{key:2,value:"Completed"}];
   storage = new LocalStorage();
   btnName = 'Save';
 
@@ -55,12 +56,7 @@ export class TaskAddEditComponent implements OnInit {
     let oldTasks = this.storage.get("tasks");
     this.formGroup.value.status = this.formGroup.value.status ?? 1;
     if(this.task.id){
-      const id = this.route.params['value'].id;
-      oldTasks.forEach(element => {
-        
-      });
       oldTasks = oldTasks.map(obj => this.task.id === obj.id ? this.formGroup.value : obj);
-
     }else{
       if(!oldTasks){
         this.formGroup.value.id =this.generateRandomNumber();

@@ -1,17 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 import {
-  CdkDragDrop,
-  CdkDrag,
-  CdkDropList,
-  CdkDropListGroup,
-  moveItemInArray,
-  transferArrayItem,
+  CdkDragDrop, moveItemInArray,
+  transferArrayItem
 } from '@angular/cdk/drag-drop';
-import { Task } from 'src/app/interface/task';
-import { LocalStorage } from 'src/app/service/local-storage';
 import { Router } from '@angular/router';
 import { AppUrlsConstants } from 'src/app/constants';
+import { Task } from 'src/app/interface/task';
+import { LocalStorage } from 'src/app/service/local-storage';
 
 @Component({
   selector: 'app-tasks',
@@ -56,7 +52,7 @@ export class TasksComponent implements OnInit {
     }
   }
   onEdit(id:number){
-    this.router.navigate(['/tasks/edit/'+id]);
+    this.router.navigate([AppUrlsConstants.URL_SEPARATOR+AppUrlsConstants.TASKS+AppUrlsConstants.URL_SEPARATOR+AppUrlsConstants.EDIT+AppUrlsConstants.URL_SEPARATOR+id]);
   }
   onDelete(id:number){
     const text = "You won't be able to revert this!"

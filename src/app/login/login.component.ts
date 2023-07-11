@@ -14,7 +14,7 @@ import { LocalStorage } from '../service/local-storage';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  tab=1;
+  tab = 1;
   storage = new LocalStorage();
 
   constructor(private fb: FormBuilder,    private readonly authService: AuthService,
@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 ) { 
   }
 
-  changeLogin(tab){
+  changeLogin(tab: number){
     this.tab = tab;
   }
 
@@ -34,20 +34,21 @@ export class LoginComponent implements OnInit {
   }
 
   onSignIn() {
-    console.log(this.form.value)
     this.authService
       .login(this.form.value)
       .then(() => {
-        this.storage.add("user",this.form.value)
-        this.router.navigate([AppUrlsConstants.TASKS])
+        this.storage.add("user", this.form.value);
+        this.router.navigate([AppUrlsConstants.TASKS]);
       })
       .catch((e) => alert(e.message));
   }
   onSignUp() {
-    console.log(this.form.value)
     this.authService
       .register(this.form.value)
-      .then(() => this.router.navigate([AppUrlsConstants.TASKS]))
+      .then(() => {
+        this.storage.add("user", this.form.value);
+        this.router.navigate([AppUrlsConstants.TASKS]);
+      })
       .catch((e) => alert(e.message));
   }
 
